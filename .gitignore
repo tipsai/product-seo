@@ -1,0 +1,21 @@
+# Credentials never go into the repo
+.env
+.env.*
+!.env.example
+*service-account*.json
+*credentials*.json
+client_secret*.json
+token.json
+
+# The skill's working folder in a user's project
+seo/data/
+seo/backups/
+seo/shots/
+
+node_modules/
+dist/
+tests/fixtures/rows.jsonl
+tests/fixtures/Queries.csv
+tests/fixtures/draft.html
+.DS_Store
+Thumbs.db

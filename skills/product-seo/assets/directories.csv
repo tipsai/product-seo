@@ -1,0 +1,64 @@
+tier,group,name,url,note,verified,link_status,checked_on
+1,AI tool directories,There's An AI For That,https://theresanaiforthat.com/submit/,Largest AI tool directory. Free and paid submission.,signups,"bot-protected, open in a browser",2026-11-16
+1,AI tool directories,Futurepedia,https://www.futurepedia.io/,Large AI tool directory.,not measured,"submit page moved, find Submit on the site",2026-11-16
+1,AI tool directories,FutureTools,https://futuretools.io/submit-a-tool,"Manual moderation, slow replies.",not measured,ok,2026-11-16
+1,AI tool directories,Toolify,https://www.toolify.ai/submit,AI tool directory.,not measured,"bot-protected, open in a browser",2026-11-16
+1,AI tool directories,Aixploria,https://www.aixploria.com/en/,AI tool directory.,not measured,"submit page moved, find Submit on the site",2026-11-16
+1,AI tool directories,Altern,https://altern.ai/,Find the submit form in the header.,not measured,ok,2026-11-16
+1,AI tool directories,AI Tools Directory,https://aitoolsdirectory.com/,AI tool directory.,not measured,ok,2026-11-16
+1,AI tool directories,Insidr AI Tools,https://www.insidr.ai/submit-tools/,AI tool directory.,not measured,ok,2026-11-16
+2,Software catalogs and review sites,AlternativeTo,https://alternativeto.net/manage/apps/new/,List the product as an alternative to the competitors you have comparison pages for.,not measured,"bot-protected, open in a browser",2026-11-16
+2,Software catalogs and review sites,GetApp,https://www.getapp.com/vendors/,"Gartner network, shares listings with Capterra and Software Advice.",not measured,"bot-protected, open in a browser",2026-11-16
+2,Software catalogs and review sites,Software Advice,https://www.softwareadvice.com/vendors/,Gartner network.,not measured,"bot-protected, open in a browser",2026-11-16
+2,Software catalogs and review sites,Capterra,https://www.capterra.com/vendors/,Gartner network. Reviews matter more than the link.,not measured,"bot-protected, open in a browser",2026-11-16
+2,Software catalogs and review sites,G2,https://sell.g2.com/,Reviews matter more than the link.,not measured,ok,2026-11-16
+2,Software catalogs and review sites,SaaSHub,https://www.saashub.com/,Software catalog with alternatives pages.,not measured,ok,2026-11-16
+2,Software catalogs and review sites,StackShare,https://stackshare.io/,Tech stack catalog.,not measured,"bot-protected, open in a browser",2026-11-16
+2,Software catalogs and review sites,SourceForge / Slashdot,https://sourceforge.net/software/vendors/,One submission lists on both.,not measured,"bot-protected, open in a browser",2026-11-16
+2,Software catalogs and review sites,Tekpon,https://tekpon.com/,Software marketplace.,not measured,ok,2026-11-16
+2,Software catalogs and review sites,SaaSworthy,https://www.saasworthy.com/vendorsportal/index.php?r=site/login,Software catalog.,not measured,ok,2026-11-16
+3,Launch platforms,Product Hunt,https://www.producthunt.com/,Launch once; keep the page current and listed as an alternative to competitors.,visits,"bot-protected, open in a browser",2026-11-16
+3,Launch platforms,BetaList,https://betalist.com/submissions/new,For early-stage products.,not measured,ok,2026-11-16
+3,Launch platforms,Uneed,https://www.uneed.best/submit-a-tool,Launch platform.,not measured,ok,2026-11-16
+3,Launch platforms,Fazier,https://fazier.com/,Launch platform.,not measured,ok,2026-11-16
+3,Launch platforms,MicroLaunch,https://microlaunch.net/,Launch platform.,not measured,ok,2026-11-16
+3,Launch platforms,Indie Hackers,https://www.indiehackers.com/products,Product profile.,not measured,"bot-protected, open in a browser",2026-11-16
+3,Launch platforms,Peerlist,https://peerlist.io/,Project profile.,not measured,"bot-protected, open in a browser",2026-11-16
+3,Launch platforms,Startup Stash,https://startupstash.com/,Startup tool catalog.,not measured,"submit page moved, find Submit on the site",2026-11-16
+3,Launch platforms,Launching Next,https://www.launchingnext.com/submit/,Startup launch list.,not measured,ok,2026-11-16
+4,Company profiles,F6S,https://www.f6s.com/,Startup profile.,visits,"bot-protected, open in a browser",2026-11-16
+4,Company profiles,Crunchbase,https://www.crunchbase.com/,"Company profile: logo, description, categories.",not measured,ok,2026-11-16
+4,Company profiles,Trustpilot,https://business.trustpilot.com/,Company reviews.,not measured,ok,2026-11-16
+4,Company profiles,Wellfound,https://wellfound.com/,Startup and jobs profile.,not measured,ok,2026-11-16
+4,Company profiles,Owler,https://www.owler.com/,Company profile.,not measured,could not open,2026-11-16
+4,Company profiles,Startup Ranking,https://www.startupranking.com/,Startup ranking.,not measured,"bot-protected, open in a browser",2026-11-16
+4,Company profiles,SmartCustomer (formerly Sitejabber),https://www.smartcustomer.com/,Business reviews.,not measured,ok,2026-11-16
+4,Company profiles,TrustRadius,https://www.trustradius.com/vendors,B2B software reviews.,not measured,"bot-protected, open in a browser",2026-11-16
+4,Company profiles,Gartner Peer Insights,https://www.gartner.com/reviews/,Enterprise software reviews.,not measured,"bot-protected, open in a browser",2026-11-16
+4,Company profiles,Glassdoor,https://www.glassdoor.com/employers/,Employer profile.,not measured,ok,2026-11-16
+4,Company profiles,Tracxn,https://tracxn.com/,Company database.,not measured,ok,2026-11-16
+4,Company profiles,ZoomInfo,https://www.zoominfo.com/,Company database; claim the profile.,not measured,ok,2026-11-16
+5,Second-line catalogs,SoftwareSuggest,https://www.softwaresuggest.com/,Software catalog.,not measured,ok,2026-11-16
+5,Second-line catalogs,GoodFirms,https://www.goodfirms.co/,Software and agency catalog.,not measured,could not open,2026-11-16
+5,Second-line catalogs,Crozdesk,https://crozdesk.com/,Software catalog.,not measured,ok,2026-11-16
+5,Second-line catalogs,Serchen,https://www.serchen.com/get-listed,Cloud software catalog.,not measured,ok,2026-11-16
+5,Second-line catalogs,FinancesOnline,https://financesonline.com/,Software reviews.,not measured,ok,2026-11-16
+5,Second-line catalogs,AI Tools FYI,https://aitools.fyi/,AI tool directory.,not measured,ok,2026-11-16
+5,Second-line catalogs,Easy With AI,https://easywithai.com/submit-tool/,AI tool directory.,not measured,ok,2026-11-16
+5,Second-line catalogs,TopAI.tools,https://topai.tools/submit,AI tool directory.,not measured,ok,2026-11-16
+5,Second-line catalogs,AI Valley,https://aivalley.ai/,AI tool directory.,not measured,ok,2026-11-16
+5,Second-line catalogs,AIToolNet,https://www.aitoolnet.com/submit,AI tool directory.,not measured,ok,2026-11-16
+5,Second-line catalogs,OpenTools,https://opentools.ai/,AI tool directory.,not measured,ok,2026-11-16
+5,Second-line catalogs,SaaS Genius,https://www.saasgenius.com/,Software catalog.,not measured,ok,2026-11-16
+5,Second-line catalogs,WebCatalog,https://webcatalog.io/en,Desktop app catalog for web apps.,not measured,ok,2026-11-16
+6,Publishing under your own name,Medium,https://medium.com/,Republish articles with a canonical link to the original.,not measured,"bot-protected, open in a browser",2026-11-16
+6,Publishing under your own name,LinkedIn articles,https://www.linkedin.com/,Articles from the company page.,not measured,"bot-protected, open in a browser",2026-11-16
+6,Publishing under your own name,Substack,https://substack.com/,"Newsletter or blog copy, canonical to the original.",not measured,ok,2026-11-16
+6,Publishing under your own name,DEV Community,https://dev.to/,Technical posts.,not measured,ok,2026-11-16
+6,Publishing under your own name,Hashnode,https://hashnode.com/,Technical posts.,not measured,ok,2026-11-16
+6,Publishing under your own name,SlideShare,https://www.slideshare.net/,Slides made from roundup articles.,not measured,ok,2026-11-16
+6,Publishing under your own name,YouTube,https://www.youtube.com/,Product video and short how-tos.,not measured,ok,2026-11-16
+6,Publishing under your own name,Vimeo,https://vimeo.com/,Copy of the videos.,not measured,ok,2026-11-16
+6,Publishing under your own name,Pinterest,https://www.pinterest.com/,Article covers that link to the article.,not measured,ok,2026-11-16
+6,Publishing under your own name,Behance,https://www.behance.net/,Interface case study.,not measured,"bot-protected, open in a browser",2026-11-16
+6,Publishing under your own name,vc.ru,https://vc.ru/,"Russian-language business media. Own articles under the company or author name, for a Russian-speaking audience.",signups,ok,2026-11-16

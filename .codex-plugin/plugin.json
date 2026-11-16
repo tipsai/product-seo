@@ -1,0 +1,26 @@
+{
+  "name": "product-seo",
+  "version": "0.1.0",
+  "description": "SEO for a product website, judged by signups: triage your Search Console data, fix pages, measure and roll back.",
+  "author": { "name": "Igor Trunin", "url": "https://github.com/tipsai" },
+  "homepage": "https://github.com/tipsai/product-seo",
+  "repository": "https://github.com/tipsai/product-seo",
+  "license": "MIT",
+  "keywords": ["seo", "search-console", "skills", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "product-seo",
+    "shortDescription": "Grow signups from search with your own Search Console data",
+    "longDescription": "One skill for a product website: sort queries by whether the product is the answer, rewrite pages on positions 8-20, fix titles, clean up and merge thin pages, build task and comparison pages, get listed, and measure every change with a rollback rule.",
+    "developerName": "Igor Trunin",
+    "category": "Productivity",
+    "capabilities": ["Instructions"],
+    "websiteURL": "https://github.com/tipsai/product-seo",
+    "defaultPrompt": [
+      "Set up SEO for my site.",
+      "Which of our pages are closest to the first page of Google?",
+      "The rewrite went live three weeks ago. Did it work?"
+    ],
+    "brandColor": "#0071E3"
+  }
+}

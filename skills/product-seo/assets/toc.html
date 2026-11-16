@@ -1,0 +1,150 @@
+<!-- "On this page": a clickable table of contents for long pages. No dependencies.
+     Paste once into the page template, before </body> (in most site builders: page or template settings, custom code).
+     Desktop: a list of the page's H2 headings at the left of the text, the section being read highlighted.
+     Phones and narrow screens: a collapsible list above the first heading.
+     Clicking a heading scrolls to it, accounting for a sticky header. Each heading gets an id, so sections can be linked.
+     Edit CONFIG below: where the article text is, the header height, the colours, the title. -->
+<style>
+  .toc-side { position: fixed; z-index: 5; display: none; opacity: 0; transition: opacity .2s ease; pointer-events: none; font: inherit; }
+  .toc-side.is-on { opacity: 1; pointer-events: auto; }
+  .toc-title { font-size: 14px; font-weight: 700; margin: 0 0 12px; color: var(--toc-ink); }
+  .toc-list { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--toc-line); overflow-y: auto; scrollbar-width: thin; }
+  .toc-list li { margin: 0; padding: 0; }
+  .toc-list a { display: block; margin-left: -1px; padding: 6px 0 6px 14px; border-left: 2px solid transparent; font-size: 14px;
+                font-weight: 500; line-height: 1.4; color: var(--toc-muted); text-decoration: none; transition: color .15s, border-color .15s; }
+  .toc-list a:hover { color: var(--toc-ink); }
+  .toc-list a.is-active { color: var(--toc-ink); font-weight: 600; border-left-color: var(--toc-accent); }
+  .toc-inline { display: none; margin: 0 0 24px; border: 1px solid var(--toc-line); border-radius: 12px; padding: 12px 16px; }
+  .toc-inline summary { cursor: pointer; font-weight: 600; color: var(--toc-ink); }
+  .toc-inline .toc-list { margin-top: 10px; border-left: 0; }
+  .toc-inline .toc-list a { padding-left: 0; border-left: 0; }
+  .toc-inline.is-on { display: block; }
+</style>
+<script>
+(function () {
+  var CONFIG = {
+    content: 'article, .post-content, .entry-content, main', // the first match that has 2+ H2 headings is used
+    header: 76,          // height of the sticky header in px (0 if none)
+    title: 'On this page',
+    accent: '#0071E3', ink: '#111827', muted: '#6B7280', line: '#E5E7EB',
+    minSide: 170         // free space in px left of the text needed for the side list
+  };
+
+  var text = null;
+  CONFIG.content.split(',').some(function (sel) {
+    var el = document.querySelector(sel.trim());
+    if (el && el.querySelectorAll('h2').length >= 2) { text = el; return true; }
+    return false;
+  });
+  if (!text) return;
+  var heads = Array.prototype.filter.call(text.querySelectorAll('h2'), function (h) { return h.textContent.trim(); });
+  var root = document.documentElement.style;
+  root.setProperty('--toc-accent', CONFIG.accent); root.setProperty('--toc-ink', CONFIG.ink);
+  root.setProperty('--toc-muted', CONFIG.muted); root.setProperty('--toc-line', CONFIG.line);
+  var LAND = CONFIG.header + 28, GAP = 48, EDGE = 32, MAX_W = 248;
+
+  // ids for the headings, so a section can be linked
+  var used = {};
+  heads.forEach(function (h, i) {
+    h.style.scrollMarginTop = LAND + 'px';
+    if (!h.id) {
+      var slug = h.textContent.trim().toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
+        .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'section-' + (i + 1);
+      var id = slug, n = 2;
+      while (used[id] || document.getElementById(id)) id = slug + '-' + n++;
+      h.id = id;
+    }
+    used[h.id] = true;
+  });
+
+  function buildList(onClick) {
+    var list = document.createElement('ul');
+    list.className = 'toc-list';
+    var links = heads.map(function (h, i) {
+      var li = document.createElement('li'), a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent.trim();
+      a.addEventListener('click', function (e) { e.preventDefault(); onClick(i); if (history.replaceState) history.replaceState(null, '', '#' + h.id); });
+      li.appendChild(a); list.appendChild(li);
+      return a;
+    });
+    return { list: list, links: links };
+  }
+
+  // side list (desktop)
+  var side = document.createElement('nav');
+  side.className = 'toc-side';
+  side.setAttribute('aria-label', CONFIG.title);
+  var t = document.createElement('p'); t.className = 'toc-title'; t.textContent = CONFIG.title;
+  var S = buildList(function (i) { goTo(i, true); });
+  side.appendChild(t); side.appendChild(S.list);
+  document.body.appendChild(side);
+
+  // collapsible list (phones)
+  var inline = document.createElement('details');
+  inline.className = 'toc-inline';
+  var sum = document.createElement('summary'); sum.textContent = CONFIG.title;
+  var I = buildList(function (i) { inline.open = false; goTo(i, true); });
+  inline.appendChild(sum); inline.appendChild(I.list);
+  heads[0].parentNode.insertBefore(inline, heads[0]);
+
+  var active = -1, ticking = false, lock = -1, timer = null;
+  function setActive(i) {
+    if (i === active) return;
+    if (active >= 0) S.links[active].classList.remove('is-active');
+    S.links[i].classList.add('is-active');
+    active = i;
+    var a = S.links[i], l = S.list;
+    if (a.offsetTop < l.scrollTop || a.offsetTop + a.offsetHeight > l.scrollTop + l.clientHeight) l.scrollTop = a.offsetTop - l.clientHeight / 2;
+  }
+
+  // Images above a section load while scrolling and push it down; when the page stops, correct the position.
+  function goTo(i, smooth) {
+    var h = heads[i], lastY = -1, fixes = 0, started = Date.now();
+    lock = i; setActive(i);
+    h.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    clearInterval(timer);
+    timer = setInterval(function () {
+      var y = window.scrollY;
+      if (y === lastY) {
+        var off = h.getBoundingClientRect().top - LAND;
+        if (Math.abs(off) > 6 && fixes < 3) { fixes++; window.scrollTo({ top: y + off, behavior: 'auto' }); } else done();
+      } else if (Date.now() - started > 4000) done();
+      lastY = y;
+    }, 150);
+    function done() { clearInterval(timer); lock = -1; schedule(); }
+  }
+
+  function update() {
+    ticking = false;
+    var r = text.getBoundingClientRect();
+    var free = r.left - GAP - EDGE;
+    var wide = free >= CONFIG.minSide;
+    inline.classList.toggle('is-on', !wide);
+    if (!wide) { side.style.display = 'none'; return; }
+    var w = Math.min(MAX_W, free), top0 = CONFIG.header + 40;
+    side.style.display = 'block'; side.style.width = w + 'px'; side.style.left = (r.left - GAP - w) + 'px';
+    S.list.style.maxHeight = (window.innerHeight - top0 - 80) + 'px';
+    var top = Math.min(Math.max(r.top, top0), r.bottom - side.offsetHeight);
+    side.style.top = top + 'px';
+    side.classList.toggle('is-on', r.top < window.innerHeight && r.bottom > top0 + 120);
+    if (lock >= 0) return;
+    var line = LAND + 80, cur = 0;
+    for (var i = 0; i < heads.length; i++) if (heads[i].getBoundingClientRect().top <= line) cur = i;
+    var last = heads[heads.length - 1].getBoundingClientRect();
+    if (r.bottom < window.innerHeight * 0.85 && last.top > 0 && last.top < window.innerHeight) cur = heads.length - 1;
+    setActive(cur);
+  }
+  function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  window.addEventListener('load', schedule);
+  update();
+
+  // a shared link with #section: the ids did not exist when the browser tried to jump
+  if (location.hash) {
+    var at = heads.indexOf(document.getElementById(decodeURIComponent(location.hash.slice(1))));
+    if (at >= 0) setTimeout(function () { goTo(at, false); }, 0);
+  }
+})();
+</script>

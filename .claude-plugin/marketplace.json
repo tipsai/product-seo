@@ -1,0 +1,12 @@
+{
+  "name": "tipsai",
+  "description": "product-seo: an SEO skill for product websites, built from real work",
+  "owner": { "name": "Igor Trunin" },
+  "plugins": [
+    {
+      "name": "product-seo",
+      "source": "./",
+      "description": "Grow signups from search using your own Search Console data"
+    }
+  ]
+}

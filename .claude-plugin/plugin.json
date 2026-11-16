@@ -1,0 +1,9 @@
+{
+  "name": "product-seo",
+  "version": "0.1.0",
+  "description": "Grow signups from search using your own Search Console data",
+  "author": { "name": "Igor Trunin" },
+  "repository": "https://github.com/tipsai/product-seo",
+  "license": "MIT",
+  "keywords": ["seo", "search-console", "agent-skills", "codex", "claude-code"]
+}
